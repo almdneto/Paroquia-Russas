@@ -1,11 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LiturgiaController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
-Route::get('/teste', function () {
-    return view('teste');
-});
+Route::get('/liturgia', [LiturgiaController::class, 'index']);
