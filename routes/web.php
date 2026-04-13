@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/liturgia', [LiturgiaController::class, 'index']);
+Route::get('/liturgia', [LiturgiaController::class, 'liturgia']);
