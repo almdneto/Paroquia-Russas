@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Http;
 
 class LiturgiaController extends Controller
 {
-    public function liturgia()
+    public function index()
     {
         $liturgia = null;
         $erro = null;
@@ -24,6 +24,7 @@ class LiturgiaController extends Controller
         } catch (\Exception $e) {
             $erro = $e->getMessage();
         }
-        return view('liturgia.liturgia', compact('liturgia', 'erro'));
+        // dd($liturgia);
+        return view('liturgia.index', compact('liturgia', 'erro'));
     }
 }
