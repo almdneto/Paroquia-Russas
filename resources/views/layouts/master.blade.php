@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,12 +10,11 @@
   <body>  
   <header class='h-[94px] bg-blue-site'>
     <nav id="navbar" class="container mx-auto flex items-center justify-between h-full">
-      <div id="logo" class="inline-block items-center h-full">
-        <a href="/" ><img src="{{Vite::asset('resources/images/Logo.png')}}" alt="" class="h-full max-h-[70px]"></a>
-      </div>
+      <a href="/" ><img src="{{Vite::asset('resources/images/Logo.png')}}" alt="" class="h-full max-h-[70px]"></a>
       
       <div id="links-textos">
-        <a href="/liturgia" class="inline-block text-[24px] text-white duration-300 hover:text-blue-200 hover:scale-110 hover:underline transition-all ">Liturgia diaria</a>
+        <a href="/liturgia" class="inline-block text-[20px] text-white hover:text-blue-200 hover:scale-105 hover:underline transition-all duration-200 ">Liturgia diaria</a>
+        <a href=""></a>
       </div>
     </nav>
   </header>

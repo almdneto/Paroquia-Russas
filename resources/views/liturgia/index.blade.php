@@ -1,6 +1,6 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('title', 'Liturgia Diária')
 
@@ -48,6 +48,6 @@
 
 @section('content')
 
-  <p class="whitespace-pre-line">{{ $salmoResponsorialTexto }}</p>
+  <p class="whitespace-pre-line">{{ trim($salmoResponsorialTexto) }}</p>
 
 @endsection
