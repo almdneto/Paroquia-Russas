@@ -6,10 +6,67 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+    /* Fontes */
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji','Segoe UI Symbol', 'Noto Color Emoji';
+    --font-cinzel: 'Cinzel', serif;
+    --font-garamond: 'EB Garamond', Georgia, serif;
+
+    /* Cores */
+        /* Background */
+        --color-bg: #0f1f15;
+        
+        /* Header */
+        --color-header: #162b1e;
+        --color-header-alt: #1a2a10;
+
+        /* Surface "Superfície, como navbar" */
+        --color-surface: #132018;
+
+        /* Border */
+        --color-border: #6a9a50;
+
+        /* Cor primária "É a cor da paróquia" */
+        --color-primary: #8ab860;
+        --color-primary-light: #c8e89a;
+        --color-primary-mid: #a8c888;
+
+        /* Labels, datas, etc */
+        --color-muted: #7a9a6a;
+
+        /* Cor dos textos padrão */
+        --color-foreground: #e0ead8;
+            /* Pra títulos com mais destaque */
+            --color-foreground-strong: #e8f0d8;
+        
 }
 
-.bg-blue-site {
-    background-color: #3d416e;
+/* Base do site */
+@layer base {
+    body {
+        font-family: var(--font-garamond);
+        background-color: var(--color-bg);
+        color: var(--color-foreground);
+    }
+}
+
+/* Botão da navbar */
+@layer components {
+    /* Botão normal */
+    .nav-link {
+        @apply font-cinzel text-[12px] tracking-wide text-muted px-4 py-1.5 rounded-md border border-transparent no-underline transition-all duration-200;
+    }
+
+    /* Botão com o mouse em cima */
+    .nav-link:hover {
+        @apply text-primary-light;
+        background-color: color-mix(in srgb, var(--color-primary) 7%, transparent);
+        border-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+    }
+
+    /* Botão na página dele */
+    .nav-link.active {
+        @apply text-primary-light;
+        background-color: color-mix(in srgb, var(--color-primary) 10%, transparent);
+        border-color: color-mix(in srgb, var(--color-primary) 28%, transparent);
+    }
 }
