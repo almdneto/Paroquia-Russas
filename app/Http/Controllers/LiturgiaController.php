@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Http;
+
 
 class LiturgiaController extends Controller
 {
@@ -27,4 +29,29 @@ class LiturgiaController extends Controller
         // dd($liturgia);
         return view('liturgia.index', compact('liturgia', 'erro'));
     }
+
+    public function downloadPdf(){
+    try {
+        $response = Http::withoutVerifying()
+            ->timeout(15)
+            ->get("https://liturgia.up.railway.app/v2/");
+
+        if (!$response->successful()) {
+            return back()->with('erro', 'Não foi possível buscar a liturgia.');
+        }
+
+        $liturgia = $response->json();
+
+    } catch (\Exception $e) {
+        return back()->with('erro', $e->getMessage());
+    }
+
+    $pdf = Pdf::loadView('liturgia.pdf', compact('liturgia'))
+        ->setPaper('a4', 'portrait');
+
+    $filename = 'liturgia-' . now()->format('Y-m-d') . '.pdf';
+
+    return $pdf->download($filename);
+    }
 }
+

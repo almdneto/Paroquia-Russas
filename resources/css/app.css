@@ -42,6 +42,10 @@
 
 /* Base do site */
 @layer base {
+    * {
+        box-sizing: border-box;
+    }
+
     body {
         font-family: var(--font-garamond);
         background-color: var(--color-bg);

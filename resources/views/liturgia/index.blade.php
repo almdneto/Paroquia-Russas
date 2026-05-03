@@ -49,5 +49,6 @@
 @section('content')
 
   <p class="whitespace-pre-line">{{ trim($salmoResponsorialTexto) }}</p>
+  <a href="{{ route('liturgia.pdf') }}">📄 Baixar PDF</a>
 
 @endsection

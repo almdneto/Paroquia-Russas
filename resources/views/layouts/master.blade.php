@@ -16,8 +16,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>      
     @vite(['resources/css/app.css', 'resources/js/app.js'])
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col ">
     
+    {{-- Indentidade visual --}}
     <header class="
       {{-- Gradientezin na diagonal --}}
       bg-gradient-to-br from-header via-bg to-header-alt 
@@ -26,23 +27,21 @@
       border-b border-border/25
 
       {{-- Padding e altura --}}
-      px-8 h-[72px]
+      px-8 h-[64px]
 
       {{-- Display --}}
       flex items-center justify-between
 
       {{-- Posição --}}
-      relative
-    ">
+      relative">
 
       {{-- Borda superior --}}
       <div class="
-        {{-- Posição e altura --}}
-        absolute left-0 top-0 right-0 h-px
+        {{-- Posição e altura "queria usar w-full, mas o scroll vertical não deixou, paia" --}}
+        absolute top-0 right-0 left-0 h-px 
 
         {{-- Oto gradiente  --}}
-        bg-gradient-to-r from-transparent via-primary to-transparent
-      "></div>
+        bg-gradient-to-r from-transparent via-primary to-transparent"></div>
 
       {{-- Logo e título do site --}}
       <div class="
@@ -78,8 +77,28 @@
 
       </div>
 
+      {{-- Página que a pessoa tá vendo --}}
+      <div class="
+        {{-- Fonte --}}
+        italic text-primary-mid text-[16px]">
+        <p>@yield('title')</p>
+      </div>
+
     </header>
-  
+    
+    {{-- Navbar --}}
+    <nav class="
+      {{-- Background "Cor de fundo" e borda --}}
+      bg-surface border-b border-border/15
+    
+      {{-- Padding, display e altura --}}
+      px-8 h-12 flex items-center gap-1">
+      <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Início</a>
+      <a href="{{ route('liturgia.index') }}" class="nav-link {{ request()->is('liturgia*') ? 'active' : '' }}">Liturgia</a>
+      <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Início</a>
+      <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Início</a>
+      <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Início</a>
+    </nav>
   
   @yield('content')
 
