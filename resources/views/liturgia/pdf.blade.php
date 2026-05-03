@@ -7,100 +7,103 @@
 
         body {
             font-family: 'Georgia', serif;
-            font-size: 12pt;
+            font-size: 14pt;
             color: #2c2c2c;
             background: #fff;
         }
 
-        .pagina { padding: 40px 50px; }
+        .pagina { padding: 20px 22px; }
 
         .cabecalho {
             text-align: center;
-            border-bottom: 3px solid #8B0000;
-            padding-bottom: 16px;
-            margin-bottom: 30px;
+            border-bottom: 2px solid #8B0000;
+            padding-bottom: 10px;
+            margin-bottom: 16px;
         }
-
-        .cabecalho .cruz { font-size: 24pt; color: #8B0000; }
 
         .cabecalho h1 {
             font-size: 18pt;
             color: #8B0000;
             letter-spacing: 1px;
-            margin: 6px 0 2px;
+            margin-bottom: 2px;
         }
 
         .cabecalho .subtitulo {
-            font-size: 11pt;
+            font-size: 14pt;
             color: #555;
             font-style: italic;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .cabecalho .data {
-            font-size: 10pt;
+            font-size: 14pt;
             color: #999;
         }
 
         .cor-liturgica {
             display: inline-block;
-            font-size: 9pt;
-            padding: 2px 10px;
+            font-size: 12pt;
+            padding: 2px 8px;
             border-radius: 10px;
-            margin-top: 6px;
+            margin-top: 4px;
             background-color: #f0e6e6;
             color: #8B0000;
         }
 
-        .bloco { margin-bottom: 26px; }
+        .bloco { margin-bottom: 14px; }
 
         .bloco-titulo {
-            font-size: 12pt;
+            font-size: 14pt;
             font-weight: bold;
             color: #8B0000;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            border-left: 4px solid #8B0000;
-            padding-left: 8px;
-            margin-bottom: 4px;
+            border-left: 3px solid #8B0000;
+            padding-left: 6px;
+            margin-bottom: 3px;
         }
 
         .bloco-subtitulo {
-            font-size: 10pt;
+            font-size: 12pt;
             color: #666;
             font-style: italic;
-            margin-bottom: 4px;
-            padding-left: 12px;
+            margin-bottom: 3px;
+            padding-left: 9px;
         }
 
         .bloco-refrao {
-            font-size: 11pt;
+            font-size: 14pt;
             font-style: italic;
             color: #8B0000;
             background: #fdf5f5;
-            padding: 8px 12px;
+            padding: 6px 10px;
             border-radius: 4px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .bloco-texto {
-            font-size: 11pt;
-            line-height: 1.8;
+            font-size: 14pt;
+            line-height: 1.7;
             text-align: justify;
+            white-space: pre-line;
+        }
+
+        .bloco-texto-salmo {
+            text-align: left;
         }
 
         .divisor {
             border: none;
             border-top: 1px solid #e0e0e0;
-            margin: 22px 0;
+            margin: 12px 0;
         }
 
         .rodape {
             text-align: center;
-            font-size: 9pt;
+            font-size: 12pt;
             color: #bbb;
-            margin-top: 40px;
-            padding-top: 10px;
+            margin-top: 20px;
+            padding-top: 8px;
             border-top: 1px solid #eee;
         }
     </style>
@@ -148,12 +151,12 @@
             @if(!empty($s['refrao']))
                 <div class="bloco-refrao">{{ $s['refrao'] }}</div>
             @endif
-            <div class="bloco-texto">{{ $s['texto'] ?? '' }}</div>
+            <div class="bloco-texto bloco-texto-salmo">{{ $s['texto'] ?? '' }}</div>
         </div>
         <hr class="divisor">
     @endif
 
-    {{-- 2ª Leitura (domingos) --}}
+    {{-- 2ª Leitura --}}
     @if(!empty($leituras['segundaLeitura'][0]))
         @php $l2 = $leituras['segundaLeitura'][0]; @endphp
         <div class="bloco">

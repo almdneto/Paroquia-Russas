@@ -93,11 +93,13 @@
     
       {{-- Padding, display e altura --}}
       px-8 h-12 flex items-center gap-1">
-      <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Início</a>
-      <a href="{{ route('liturgia.index') }}" class="nav-link {{ request()->is('liturgia*') ? 'active' : '' }}">Liturgia</a>
-      <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Início</a>
-      <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Início</a>
-      <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Início</a>
+      <div class="btt-gerais">
+        <a href="{{ route('home') }}" class="nav-link {{ request()->is('/') ? 'active' : '' }}">Início</a>
+        <a href="{{ route('liturgia.index') }}" class="nav-link {{ request()->is('liturgia*') ? 'active' : '' }}">Liturgia</a>
+        <a href="{{ route('home') }}" class="nav-link {{ request()->is('') ? 'active' : '' }}">Início</a>
+        <a href="{{ route('home') }}" class="nav-link {{ request()->is('') ? 'active' : '' }}">Início</a>
+        <a href="{{ route('pages.localizacao') }}" class="nav-link {{ request()->is('localizacao') ? 'active' : '' }}">Localização</a>
+      </div>
     </nav>
   
   @yield('content')

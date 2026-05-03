@@ -47,7 +47,7 @@ class LiturgiaController extends Controller
     }
 
     $pdf = Pdf::loadView('liturgia.pdf', compact('liturgia'))
-        ->setPaper('a4', 'portrait');
+        ->setPaper([0, 0, 360, 780], 'portrait');
 
     $filename = 'liturgia-' . now()->format('Y-m-d') . '.pdf';
 
