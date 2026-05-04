@@ -47,8 +47,12 @@
 @endphp
 
 @section('content')
-
-  <p class="whitespace-pre-line">{{ trim($salmoResponsorialTexto) }}</p>
-  <a href="{{ route('liturgia.pdf') }}">📄 Baixar PDF</a>
+  <style>
+    .teste:hover {border-color: color-mix(in srgb, var(--color-primary) 28%, transparent);}
+  </style>
+  <div class="flex flex-col">
+    <a href="{{ route('liturgia.pdf') }}" class="border text-[20px] self-end my-8 border-transparent mx-4 px-4 py-2 teste transition-all duration-200">📄 Baixar PDF</a>
+    <p class="whitespace-pre-line">{{ trim($salmoResponsorialTexto) }}</p>
+  </div>
 
 @endsection
